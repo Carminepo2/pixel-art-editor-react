@@ -1,5 +1,5 @@
 import React from "react";
-import useRemoveDefaultContextMenu from "../../hooks/useRemoveDefaultContextMenu";
+import useRemoveDefaultContextMenu from "@/hooks/useRemoveDefaultContextMenu";
 
 interface Props {}
 

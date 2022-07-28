@@ -1,7 +1,7 @@
 import React from "react";
-import { PixelGrid } from "../../types/pixel";
-import compareArray from "../../utils/compareArray";
-import Pixel from "./Pixel";
+import { PixelGrid } from "@/types/pixel";
+import compareArray from "@/utils/compareArray";
+import Pixel from "@/components/canvas/Pixel";
 
 interface Props {
   pixels: PixelGrid[0];

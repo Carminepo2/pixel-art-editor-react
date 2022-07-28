@@ -1,15 +1,15 @@
-import { Box, Button, ButtonBase, IconButton, Input, Stack } from "@mui/material";
+import { Box, ButtonBase, IconButton, Stack } from "@mui/material";
 import React from "react";
-import { useDrawingBoardDispatch, useDrawingBoardSelector } from "../../store/drawing-board/hooks";
+import { useDrawingBoardDispatch, useDrawingBoardSelector } from "@/store/drawing-board/hooks";
 import {
   selectSelectedPrimaryColor,
   selectSelectedSecondaryColor,
   setSelectedColor,
-} from "../../store/drawing-board/slices/drawingBoardSlice";
-import { normalizeHex } from "../../utils/colors";
+} from "@/store/drawing-board/slices/drawingBoardSlice";
+import { normalizeHex } from "@/utils/colors";
 import { ChromePicker, ColorChangeHandler } from "react-color";
 import { Popover } from "@headlessui/react";
-import ColorFillType from "../../types/fillColor";
+import ColorFillType from "@/types/fillColor";
 
 const ColorPicker: React.FC = () => {
   const dispatch = useDrawingBoardDispatch();

@@ -1,7 +1,7 @@
 import React from "react";
-import CONSTANTS from "../../config/constants";
-import { useDrawingBoardDispatch } from "../../store/drawing-board/hooks";
-import { changePixel } from "../../store/drawing-board/slices/drawingBoardSlice";
+import CONSTANTS from "@/config/constants";
+import { useDrawingBoardDispatch } from "@/store/drawing-board/hooks";
+import { changePixel } from "@/store/drawing-board/slices/drawingBoardSlice";
 
 interface Props {
   colorHex: string;

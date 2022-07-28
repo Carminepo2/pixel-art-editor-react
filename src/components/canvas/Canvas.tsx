@@ -1,7 +1,6 @@
-import { Box } from "@mui/material";
 import React from "react";
-import { PixelGrid } from "../../types/pixel";
-import PixelRow from "./PixelRow";
+import { PixelGrid } from "@/types/pixel";
+import PixelRow from "@/components/canvas/PixelRow";
 
 interface Props {
   pixelGrid: PixelGrid;

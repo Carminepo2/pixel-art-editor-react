@@ -1,13 +1,13 @@
 import { ButtonGroup, IconButton, Stack } from "@mui/material";
 import React from "react";
-import ColorPicker from "./ColorPicker";
+import ColorPicker from "@/components/tools/ColorPicker";
 import DownloadIcon from "@mui/icons-material/Download";
-import { clear, download, redo, undo } from "../../store/drawing-board/slices/drawingBoardSlice";
-import { useDrawingBoardDispatch } from "../../store/drawing-board/hooks";
+import { clear, download, redo, undo } from "@/store/drawing-board/slices/drawingBoardSlice";
+import { useDrawingBoardDispatch } from "@/store/drawing-board/hooks";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import DeleteIcon from "@mui/icons-material/Delete";
-import ToolsButtonGroup from "./ToolsButtonGroup";
+import ToolsButtonGroup from "@/components/tools/ToolsButtonGroup";
 
 const Toolbar: React.FC = () => {
   const dispatch = useDrawingBoardDispatch();

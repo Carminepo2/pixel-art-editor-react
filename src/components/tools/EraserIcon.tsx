@@ -1,8 +1,6 @@
 import React from "react";
 
-interface Props {}
-
-const EraserIcon: React.FC<Props> = () => {
+const EraserIcon: React.FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

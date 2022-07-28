@@ -1,11 +1,10 @@
-import { Box, Stack } from "@mui/material";
 import React from "react";
-import CONSTANTS from "../../config/constants";
-import ReactZoomPanPinch from "../../libs/react-zoom-pan-pinch";
-import { useDrawingBoardSelector } from "../../store/drawing-board/hooks";
-import { selectPixelGrid } from "../../store/drawing-board/slices/drawingBoardSlice";
-import Canvas from "./Canvas";
-import CanvasUnderlay from "./CanvasUnderlay";
+import CONSTANTS from "@/config/constants";
+import ReactZoomPanPinch from "@/libs/react-zoom-pan-pinch";
+import { useDrawingBoardSelector } from "@/store/drawing-board/hooks";
+import { selectPixelGrid } from "@/store/drawing-board/slices/drawingBoardSlice";
+import Canvas from "@/components/canvas/Canvas";
+import CanvasUnderlay from "@/components/canvas/CanvasUnderlay";
 
 const CanvasWrapper: React.FC = () => {
   const pixelGrid = useDrawingBoardSelector(selectPixelGrid);

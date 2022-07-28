@@ -1,7 +1,7 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import React from "react";
-import setCursorStyle from "../utils/setCursorStyle";
-import CursorStyle from "../types/cursorStyle";
+import setCursorStyle from "@/utils/setCursorStyle";
+import CursorStyle from "@/types/cursorStyle";
 
 interface Props {
   children: React.ReactNode;

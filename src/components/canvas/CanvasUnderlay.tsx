@@ -1,7 +1,6 @@
-import { Box, Stack } from "@mui/material";
-import React, { useEffect } from "react";
-import CONSTANTS from "../../config/constants";
-import { PixelGrid } from "../../types/pixel";
+import React from "react";
+import CONSTANTS from "@/config/constants";
+import { PixelGrid } from "@/types/pixel";
 
 interface Props {
   pixelGrid: PixelGrid;

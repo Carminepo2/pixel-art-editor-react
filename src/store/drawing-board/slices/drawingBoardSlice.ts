@@ -1,16 +1,16 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { DrawingBoardState } from "../drawingBoardStore";
-import { PixelGrid, PixelPosition } from "../../../types/pixel";
-import createPixelGrid from "../../../utils/createPixelGrid";
-import CONSTANTS from "../../../config/constants";
-import Tool from "../../../types/tool";
-import { loadState } from "../../../utils/browserStorage";
-import { minifyHex } from "../../../utils/colors";
-import fill from "../../../utils/fill";
-import compareArray from "../../../utils/compareArray";
-import ColorFillType from "../../../types/fillColor";
-import generatePNG from "../../../utils/generatePNG";
+import type { DrawingBoardState } from "@/store/drawing-board/drawingBoardStore";
+import { PixelGrid, PixelPosition } from "@/types/pixel";
+import createPixelGrid from "@/utils/createPixelGrid";
+import CONSTANTS from "@/config/constants";
+import Tool from "@/types/tool";
+import { loadState } from "@/utils/browserStorage";
+import { minifyHex } from "@/utils/colors";
+import fill from "@/utils/fill";
+import compareArray from "@/utils/compareArray";
+import ColorFillType from "@/types/fillColor";
+import generatePNG from "@/utils/generatePNG";
 
 interface CounterState {
   pixelGrid: PixelGrid;

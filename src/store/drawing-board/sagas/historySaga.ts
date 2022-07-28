@@ -1,5 +1,5 @@
 import { all, debounce, put, takeEvery } from "redux-saga/effects";
-import { addSnapshot } from "../slices/drawingBoardSlice";
+import { addSnapshot } from "@/store/drawing-board/slices/drawingBoardSlice";
 
 function* takeSnapshot() {
   yield put(addSnapshot());

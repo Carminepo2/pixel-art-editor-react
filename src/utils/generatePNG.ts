@@ -1,5 +1,5 @@
-import { hexToRgb } from "./colors";
-import { PixelGrid } from "../types/pixel";
+import { hexToRgb } from "@/utils/colors";
+import { PixelGrid } from "@/types/pixel";
 
 function generatePNG(data: PixelGrid, scaleFactor: number = 1) {
   const canvas = document.createElement("canvas");

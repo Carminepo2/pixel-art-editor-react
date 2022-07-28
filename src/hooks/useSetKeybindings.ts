@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
-import { useDrawingBoardDispatch } from "../store/drawing-board/hooks";
-import { redo, undo } from "../store/drawing-board/slices/drawingBoardSlice";
+import { useDrawingBoardDispatch } from "@/store/drawing-board/hooks";
+import { redo, undo } from "@/store/drawing-board/slices/drawingBoardSlice";
 
 function useSetKeybindings() {
   const dispatch = useDrawingBoardDispatch();

@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import React from "react";
 import { Provider } from "react-redux";
-import { drawingBoardStore } from "../store/drawing-board/drawingBoardStore";
-import ContextMenu from "./tools/ContextMenu";
-import CanvasWrapper from "./canvas/CanvasWrapper";
-import Toolbar from "./tools/Toolbar";
-import useSetKeybindings from "../hooks/useSetKeybindings";
+import { drawingBoardStore } from "@/store/drawing-board/drawingBoardStore";
+import ContextMenu from "@/components/tools/ContextMenu";
+import CanvasWrapper from "@/components/canvas/CanvasWrapper";
+import Toolbar from "@/components/tools/Toolbar";
+import useSetKeybindings from "@/hooks/useSetKeybindings";
 
 const DrawingBoard: React.FC = () => {
   return (

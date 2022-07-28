@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import drawingBoardReducer from "./slices/drawingBoardSlice";
+import drawingBoardReducer from "@/store/drawing-board/slices/drawingBoardSlice";
 import createSagaMiddleware from "redux-saga";
-import historySaga from "./sagas/historySaga";
-import { saveState } from "../../utils/browserStorage";
+import historySaga from "@/store/drawing-board/sagas/historySaga";
+import { saveState } from "@/utils/browserStorage";
 import debounce from "lodash.debounce";
 
 const saga = createSagaMiddleware();

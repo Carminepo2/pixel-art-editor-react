@@ -1,4 +1,4 @@
-import { PixelGrid, PixelPosition } from "../types/pixel";
+import { PixelGrid, PixelPosition } from "@/types/pixel";
 
 //TODO: BETTER PERFORMANCE!!
 function fill(pixelGrid: PixelGrid, startingPosition: PixelPosition, color: string) {

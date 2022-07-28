@@ -1,4 +1,4 @@
-import { PixelGrid } from "../types/pixel";
+import { PixelGrid } from "@/types/pixel";
 
 function createPixelGrid(width: number, height: number): PixelGrid {
   const pixelGrid: PixelGrid = [];

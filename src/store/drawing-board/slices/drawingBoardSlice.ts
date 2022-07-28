@@ -10,6 +10,7 @@ import { minifyHex } from "../../../utils/colors";
 import fill from "../../../utils/fill";
 import compareArray from "../../../utils/compareArray";
 import ColorFillType from "../../../types/fillColor";
+import generatePNG from "../../../utils/generatePNG";
 
 interface CounterState {
   pixelGrid: PixelGrid;
@@ -103,11 +104,19 @@ export const drawingBoardSlice = createSlice({
       state.snapshots = [];
       state.snapshotCursor = 0;
     },
+
+    download: (state) => {
+      const data = generatePNG(state.pixelGrid);
+      const link = document.createElement("a");
+      link.href = data;
+      link.download = "pixel-grid.png";
+      link.click();
+    },
   },
 });
 
 // Actions
-export const { changePixel, setActiveTool, setSelectedColor, addSnapshot, undo, redo, clear } =
+export const { changePixel, setActiveTool, setSelectedColor, addSnapshot, undo, redo, clear, download } =
   drawingBoardSlice.actions;
 
 // Selectors

@@ -11,22 +11,18 @@ const CanvasWrapper: React.FC = () => {
   const pixelGrid = useDrawingBoardSelector(selectPixelGrid);
 
   return (
-    <Box sx={{ height: "100vh", width: "100vw", backgroundColor: CONSTANTS.BACKGROUND_COLOR }}>
+    <div className="h-screen w-screen" style={{ backgroundColor: CONSTANTS.BACKGROUND_COLOR }}>
       <ReactZoomPanPinch>
-        <Stack
-          justifyContent="center"
-          alignItems="center"
-          sx={{ height: "100vh", width: "100vw", position: "relative" }}
-        >
-          <Box sx={{ position: "absolute" }}>
+        <div className="flex justify-center items-center h-screen w-screen relative">
+          <div className="absolute">
             <CanvasUnderlay pixelGrid={pixelGrid} />
-          </Box>
-          <Box sx={{ position: "absolute" }}>
+          </div>
+          <div className="absolute">
             <Canvas pixelGrid={pixelGrid} />
-          </Box>
-        </Stack>
+          </div>
+        </div>
       </ReactZoomPanPinch>
-    </Box>
+    </div>
   );
 };
 

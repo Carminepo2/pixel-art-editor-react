@@ -17,14 +17,14 @@ const CanvasUnderlay: React.FC<Props> = ({ pixelGrid }) => {
   return (
     <>
       {underlayPixelGrid.map((row: Array<string>, index: number) => (
-        <Stack direction="row" key={index}>
+        <div className="flex" key={index}>
           {row.map((pixel, pixelIndex) => (
             <div
               key={pixelIndex}
               style={{ backgroundColor: pixel, height: CONSTANTS.PIXEL_SIZE, width: CONSTANTS.PIXEL_SIZE }}
             />
           ))}
-        </Stack>
+        </div>
       ))}
     </>
   );

@@ -2,24 +2,18 @@ import { ButtonGroup, IconButton, Stack } from "@mui/material";
 import React from "react";
 import ColorPicker from "./ColorPicker";
 import DownloadIcon from "@mui/icons-material/Download";
-import { clear, redo, selectPixelGrid, undo } from "../../store/drawing-board/slices/drawingBoardSlice";
-import { useDrawingBoardDispatch, useDrawingBoardSelector } from "../../store/drawing-board/hooks";
-import generatePNG from "../../utils/generatePNG";
+import { clear, download, redo, undo } from "../../store/drawing-board/slices/drawingBoardSlice";
+import { useDrawingBoardDispatch } from "../../store/drawing-board/hooks";
 import UndoIcon from "@mui/icons-material/Undo";
 import RedoIcon from "@mui/icons-material/Redo";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ToolsButtonGroup from "./ToolsButtonGroup";
 
 const Toolbar: React.FC = () => {
-  const pixelGrid = useDrawingBoardSelector(selectPixelGrid);
   const dispatch = useDrawingBoardDispatch();
 
   const handleDownload = () => {
-    const data = generatePNG(pixelGrid);
-    const link = document.createElement("a");
-    link.href = data;
-    link.download = "pixel-grid.png";
-    link.click();
+    dispatch(download());
   };
 
   const handleUndo = () => {
@@ -60,4 +54,4 @@ const Toolbar: React.FC = () => {
   );
 };
 
-export default Toolbar;
+export default React.memo(Toolbar);

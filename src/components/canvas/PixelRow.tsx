@@ -1,4 +1,3 @@
-import { Stack } from "@mui/material";
 import React from "react";
 import { PixelGrid } from "../../types/pixel";
 import compareArray from "../../utils/compareArray";
@@ -11,11 +10,11 @@ interface Props {
 
 const PixelRow: React.FC<Props> = ({ pixels, rowNum }) => {
   return (
-    <Stack direction="row">
+    <div style={{ display: "flex" }}>
       {pixels.map((pixel, colIndex) => (
         <Pixel key={colIndex} colorHex={pixel} rowNum={rowNum} colNum={colIndex} />
       ))}
-    </Stack>
+    </div>
   );
 };
 

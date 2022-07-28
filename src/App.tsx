@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import DrawingBoard from "./components/DrawingBoard";
 
 function App() {

@@ -1,4 +1,3 @@
-import { Box, Button } from "@mui/material";
 import React from "react";
 import CONSTANTS from "../../config/constants";
 import { useDrawingBoardDispatch } from "../../store/drawing-board/hooks";

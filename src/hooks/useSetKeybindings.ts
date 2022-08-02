@@ -1,6 +1,8 @@
+import Tool from "@/types/tool";
 import { useCallback, useEffect } from "react";
 import { useDrawingBoardDispatch } from "@/store/drawing-board/hooks";
-import { redo, undo } from "@/store/drawing-board/slices/drawingBoardSlice";
+import { redo, setActiveTool, undo } from "@/store/drawing-board/slices/drawingBoardSlice";
+import { KEYBINDINGS } from "@/config/keybindings";
 
 function useSetKeybindings() {
   const dispatch = useDrawingBoardDispatch();
@@ -12,6 +14,11 @@ function useSetKeybindings() {
       } else {
         dispatch(undo());
       }
+      return;
+    }
+
+    if (KEYBINDINGS.hasOwnProperty(e.key)) {
+      dispatch(setActiveTool(KEYBINDINGS[e.key as keyof typeof KEYBINDINGS]));
     }
   }, []);
 

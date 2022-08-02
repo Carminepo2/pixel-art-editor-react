@@ -1,57 +1,55 @@
-import { Box, ButtonBase, IconButton, Stack } from "@mui/material";
 import React from "react";
 import { useDrawingBoardDispatch, useDrawingBoardSelector } from "@/store/drawing-board/hooks";
 import {
   selectSelectedPrimaryColor,
   selectSelectedSecondaryColor,
   setSelectedColor,
+  swapPrimaryAndSecondaryColors,
 } from "@/store/drawing-board/slices/drawingBoardSlice";
-import { normalizeHex } from "@/utils/colors";
 import { ChromePicker, ColorChangeHandler } from "react-color";
 import { Popover } from "@headlessui/react";
 import ColorFillType from "@/types/fillColor";
+import { TbArrowsUpRight } from "react-icons/tb";
 
 const ColorPicker: React.FC = () => {
   const dispatch = useDrawingBoardDispatch();
   const selectedPrimaryColor = useDrawingBoardSelector(selectSelectedPrimaryColor);
   const selectedSecondaryColor = useDrawingBoardSelector(selectSelectedSecondaryColor);
 
+  const handleSwapPrimaryAndSecondaryColor = () => {
+    dispatch(swapPrimaryAndSecondaryColors());
+  };
+
   const handleChange = (type: ColorFillType) => {
     return (color: string) => dispatch(setSelectedColor({ type, color }));
   };
 
-  const normalizedSelectedPrimaryColorHex = React.useMemo(() => {
-    return normalizeHex(selectedPrimaryColor);
-  }, [selectedPrimaryColor]);
-
-  const normalizedSelectedSecondaryColorHex = React.useMemo(() => {
-    return normalizeHex(selectedSecondaryColor);
-  }, [selectedSecondaryColor]);
-
   return (
-    <Box position="relative">
-      <Box>
-        <IconButton size="small"></IconButton>
-      </Box>
-      <Stack alignItems="start">
-        <Box sx={{ padding: 0, position: "relative", top: 9, left: 15 }}>
+    <div className="relative">
+      <div className="relative z-10">
+        <div className="p-0 relative top-2 left-3.5">
           <ColorPickerButton
-            color={normalizedSelectedPrimaryColorHex}
+            color={selectedPrimaryColor}
             onChange={handleChange("primary")}
             ariaLabel="Select primary fill color"
           />
-        </Box>
-      </Stack>
-      <Stack alignItems="end">
-        <Box sx={{ padding: 0, position: "relative", bottom: 9, right: 15 }}>
+        </div>
+      </div>
+      <div className="flex justify-end">
+        <div className="p-0 relative bottom-3 right-3.5">
           <ColorPickerButton
-            color={normalizedSelectedSecondaryColorHex}
+            color={selectedSecondaryColor}
             onChange={handleChange("secondary")}
             ariaLabel="Select secondary fill color"
           />
-        </Box>
-      </Stack>
-    </Box>
+        </div>
+      </div>
+      <div onClick={handleSwapPrimaryAndSecondaryColor} className="absolute bottom-3 left-3.5">
+        <button>
+          <TbArrowsUpRight />
+        </button>
+      </div>
+    </div>
   );
 };
 
@@ -67,15 +65,13 @@ const ColorPickerButton: React.FC<ColorPickerButtonProps> = ({ color, onChange, 
   };
   return (
     <Popover>
-      <Popover.Button as="div">
-        <ButtonBase
-          onClick={onChange.bind(null, color)}
-          sx={{ height: 40, width: 40, backgroundColor: color, p: 0, m: 0, border: 1, borderColor: "gray" }}
-          aria-label={ariaLabel}
-        />
-      </Popover.Button>
-
-      <Popover.Panel style={{ position: "absolute", zIndex: 99 }}>
+      <Popover.Button
+        onClick={onChange.bind(null, color)}
+        className="h-10 w-10 p-0 m-0 border border-gray-400 rounded"
+        style={{ backgroundColor: color }}
+        aria-label={ariaLabel}
+      />
+      <Popover.Panel className="absolute z-50">
         <ChromePicker color={color} onChange={handleChange} disableAlpha />
       </Popover.Panel>
     </Popover>

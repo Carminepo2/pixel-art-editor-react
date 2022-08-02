@@ -6,7 +6,7 @@ import createPixelGrid from "@/utils/createPixelGrid";
 import CONSTANTS from "@/config/constants";
 import Tool from "@/types/tool";
 import { loadState } from "@/utils/browserStorage";
-import { minifyHex } from "@/utils/colors";
+import { minifyHex, normalizeHex } from "@/utils/colors";
 import fill from "@/utils/fill";
 import compareArray from "@/utils/compareArray";
 import ColorFillType from "@/types/fillColor";
@@ -69,6 +69,12 @@ export const drawingBoardSlice = createSlice({
       }
     },
 
+    swapPrimaryAndSecondaryColors: (state) => {
+      const temp = state.selectedPrimaryColor;
+      state.selectedPrimaryColor = state.selectedSecondaryColor;
+      state.selectedSecondaryColor = temp;
+    },
+
     setActiveTool: (state, action: PayloadAction<Tool>) => {
       state.activeTool = action.payload;
     },
@@ -116,13 +122,24 @@ export const drawingBoardSlice = createSlice({
 });
 
 // Actions
-export const { changePixel, setActiveTool, setSelectedColor, addSnapshot, undo, redo, clear, download } =
-  drawingBoardSlice.actions;
+export const {
+  changePixel,
+  setActiveTool,
+  setSelectedColor,
+  swapPrimaryAndSecondaryColors,
+  addSnapshot,
+  undo,
+  redo,
+  clear,
+  download,
+} = drawingBoardSlice.actions;
 
 // Selectors
 export const selectPixelGrid = (state: DrawingBoardState) => state.drawingBoard.pixelGrid;
-export const selectSelectedPrimaryColor = (state: DrawingBoardState) => state.drawingBoard.selectedPrimaryColor;
-export const selectSelectedSecondaryColor = (state: DrawingBoardState) => state.drawingBoard.selectedSecondaryColor;
+export const selectSelectedPrimaryColor = (state: DrawingBoardState) =>
+  normalizeHex(state.drawingBoard.selectedPrimaryColor);
+export const selectSelectedSecondaryColor = (state: DrawingBoardState) =>
+  normalizeHex(state.drawingBoard.selectedSecondaryColor);
 export const selectActiveTool = (state: DrawingBoardState) => state.drawingBoard.activeTool;
 
 export default drawingBoardSlice.reducer;
